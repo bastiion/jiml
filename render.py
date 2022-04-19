@@ -10,8 +10,8 @@ from jinja2_ext_custom_autoescaping import CustomAutoescapeExtension, enable_cus
 # Escapes special characters in Latex file       
 def escapeLatexChars(val):
 	# \ first to avoid double escpaing
-	LATEX_SPECIAL_CHARACTERS = ['\\', '&', '{', '}', '%']
-	LATEX_ESCAPED_CHARACTERS = ['/\\', '\&', '\{', '\}', '\%']
+	LATEX_SPECIAL_CHARACTERS = ['\\', '&', '{', '}', '%', '\n']
+	LATEX_ESCAPED_CHARACTERS = ['/\\', '\&', '\{', '\}', '\%', '\\\\']
 	if isinstance(val, str):
 		for i in range(0, len(LATEX_SPECIAL_CHARACTERS)):
 			val = val.replace(LATEX_SPECIAL_CHARACTERS[i], LATEX_ESCAPED_CHARACTERS[i])
