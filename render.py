@@ -7,11 +7,12 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 from jinja2_ext_custom_autoescaping import CustomAutoescapeExtension, enable_custom_autoescaping # https://github.com/mbello/jinja2-ext-custom-autoescaping
 
 # LATEX
-# Escapes special characters in Latex file       
+# Escapes special characters in Latex file
+# convert normal hyphen - into a non breaking hyphen ‑
 def escapeLatexChars(val):
 	# \ first to avoid double escpaing
-	LATEX_SPECIAL_CHARACTERS = ['\\', '&', '{', '}', '%', '\n']
-	LATEX_ESCAPED_CHARACTERS = ['/\\', '\&', '\{', '\}', '\%', '\\\\']
+	LATEX_SPECIAL_CHARACTERS = ['\\', '&', '{', '}', '%', '\n', '-']
+	LATEX_ESCAPED_CHARACTERS = ['/\\', '\&', '\{', '\}', '\%', '\\\\', '‑']
 	if isinstance(val, str):
 		for i in range(0, len(LATEX_SPECIAL_CHARACTERS)):
 			val = val.replace(LATEX_SPECIAL_CHARACTERS[i], LATEX_ESCAPED_CHARACTERS[i])
