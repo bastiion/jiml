@@ -1,3 +1,5 @@
+# Jinja template for tex files
+
 Jiml is a Python script that renders Jinja templates with data from YAML files.
 
 This allows users to maintain one YAML file of data that can be published into many other formats.
@@ -21,6 +23,12 @@ If you want to generate a PDF from a [LaTeX](https://www.latex-project.org/) fil
 
 ```bash
 xelatex demo-resume.tex
+```
+
+or with flakes
+
+```
+nix run .# -- -y data.yml -t template.tex -o final.tex
 ```
 
 ## Supported Output
